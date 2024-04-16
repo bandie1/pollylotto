@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery App</title>
+    <!-- Include TonConnect UI styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tonconnect/ui-react/dist/styles.css">
+    <!-- Include your custom styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Lottery App</h1>
+            <!-- TonConnect Button for connecting wallet -->
+            <button id="connect-wallet-btn">Connect Wallet</button>
+        </header>
+        <main>
+            <div id="lottery-container">
+                <!-- Lottery information -->
+                <div id="timer">Time Left: <span id="countdown">60</span> seconds</div>
+                <div id="prize-pool">Prize Pool: $<span id="prize-amount">100</span></div>
+                <!-- Button for participating in the lottery -->
+                <button class="btn" id="participate-btn">Participate (+$5)</button>
+                <!-- Button for viewing history -->
+                <button class="btn" id="view-history-btn">View History</button>
+                <!-- Round information -->
+                <div id="round-info">Round: <span id="round-number">1</span>, Date: <span id="round-date">April 11, 2024</span></div>
+                <!-- History table -->
+                <div id="history-container">
+                    <table id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Round</th>
+                                <th>Prize Pool</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sample round entry (can be populated dynamically) -->
+                            <tr class="round-entry">
+                                <td>1</td>
+                                <td>$100</td>
+                                <td>April 11, 2024</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Include TonConnect UI script -->
+    <script src="https://cdn.jsdelivr.net/npm/@tonconnect/ui-react"></script>
+    <!-- Include your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
