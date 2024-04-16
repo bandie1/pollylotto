@@ -12,13 +12,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>My Lottery App</h1>
-            <!-- TonConnect Button for connecting wallet -->
+            <h1>PollyLotto</h1>
+            <!-- Button to connect wallet -->
             <button id="connect-wallet-btn">Connect Wallet</button>
         </header>
         <main>
             <div id="lottery-container">
-                <!-- Lottery information -->
+                <!-- Timer and prize pool -->
                 <div id="timer">Time Left: <span id="countdown">60</span> seconds</div>
                 <div id="prize-pool">Prize Pool: $<span id="prize-amount">100</span></div>
                 <!-- Button for participating in the lottery -->
@@ -28,8 +28,8 @@
                 <!-- Round information -->
                 <div id="round-info">Round: <span id="round-number">1</span>, Date: <span id="round-date">April 11, 2024</span></div>
                 <!-- History table -->
-                <div id="history-container">
-                    <table id="history-table">
+                <div id="history-container" style="display: none;">
+                    <table id="history-table" style="display: none;">
                         <thead>
                             <tr>
                                 <th>Round</th>
@@ -55,5 +55,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tonconnect/ui-react"></script>
     <!-- Include your custom JavaScript file -->
     <script src="script.js"></script>
+
+    <!-- Initialize Ton Connect UI -->
+    <script>
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://bandie1.github.io/pollylotto/manifest.json',
+            buttonRootId: 'ton-connect'
+        });
+    </script>
 </body>
 </html>

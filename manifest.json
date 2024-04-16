@@ -1,0 +1,13 @@
+{
+    "name": "My Lottery App",
+    "description": "A lottery application integrated with Ton Connect UI.",
+    "version": "1.0",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
