@@ -1,69 +1,70 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let roundNumber = 1;
-    const countdownElement = document.getElementById('countdown');
-    let secondsLeft = 60;
-    let prizePool = 100;
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: 'https://bandie1.github.io/pollylotto/manifest.json',
+        buttonRootId: 'connect-wallet-btn'
+    });
 
-    const prizePoolElement = document.getElementById('prize-amount');
-    const roundNumberElement = document.getElementById('round-number');
-    const roundDateElement = document.getElementById('round-date');
+    // Navigation between pages
+    const page1 = document.getElementById('page-1');
+    const page2 = document.getElementById('page-2');
+    const page3 = document.getElementById('page-3');
 
-    const updatePrizePool = (amount) => {
-        prizePool += amount;
-        prizePoolElement.textContent = prizePool;
-    };
+    const goToPage2Btn = document.getElementById('goto-page-2');
+    const goToPage3BtnFrom2 = document.getElementById('goto-page-3');
+    const goToPage1BtnFrom2 = document.getElementById('goto-page-1');
+    const goToPage2BtnFrom3 = document.getElementById('goto-page-2');
 
-    const updateRoundInfo = () => {
-        roundNumber++;
-        roundNumberElement.textContent = roundNumber;
-        const currentDate = new Date();
-        roundDateElement.textContent = currentDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    };
+    goToPage2Btn.addEventListener('click', () => {
+        page1.style.display = 'none';
+        page2.style.display = 'block';
+    });
 
-    const endRound = () => {
-        updateRoundInfo();
-        prizePool = 0;
-        updatePrizePool(0);
-        const historyTableBody = document.querySelector('#history-table tbody');
-        historyTableBody.insertAdjacentHTML('beforeend', `<tr class="round-entry"><td>${roundNumber}</td><td>$0</td><td>${roundDateElement.textContent}</td></tr>`);
-    };
+    goToPage3BtnFrom2.addEventListener('click', () => {
+        page2.style.display = 'none';
+        page3.style.display = 'block';
+        // Additional functionalities specific to page 3 can be added here
+        // For example, fetching and displaying round history
+    });
 
-    const participateInLottery = () => {
-        updatePrizePool(5);
-        alert('Congratulations! You have participated in the lottery.');
-    };
+    goToPage1BtnFrom2.addEventListener('click', () => {
+        page2.style.display = 'none';
+        page1.style.display = 'block';
+    });
 
-    const showHistory = () => {
-        const historyContainer = document.getElementById('history-container');
-        const historyTable = document.getElementById('history-table');
+    goToPage2BtnFrom3.addEventListener('click', () => {
+        page3.style.display = 'none';
+        page2.style.display = 'block';
+    });
 
-        historyContainer.style.display = 'block';
-        historyTable.style.display = 'block';
-    };
-
-    const connectWallet = async () => {
-        try {
-            await tonConnectUI.openModal();
-        } catch (error) {
-            console.error('Error connecting to wallet:', error);
-        }
-    };
-
-    const countdownInterval = setInterval(() => {
-        secondsLeft--;
-        countdownElement.textContent = secondsLeft;
-        if (secondsLeft <= 0) {
-            secondsLeft = 60;
-            countdownElement.textContent = 'Time Left: 60 seconds';
-            endRound();
-        }
-    }, 1000);
-
-    const connectWalletBtn = document.getElementById('connect-wallet-btn');
+    // Functionality specific to Page 2
     const participateBtn = document.getElementById('participate-btn');
     const viewHistoryBtn = document.getElementById('view-history-btn');
 
-    connectWalletBtn.addEventListener('click', connectWallet);
-    participateBtn.addEventListener('click', participateInLottery);
-    viewHistoryBtn.addEventListener('click', showHistory);
+    participateBtn.addEventListener('click', () => {
+        // Placeholder for participating in the lottery
+        alert('Congratulations! You have participated in the lottery.');
+    });
+
+    // Functionality specific to Page 3 (View History)
+    const goBackBtn = document.getElementById('go-back-btn');
+
+    viewHistoryBtn.addEventListener('click', () => {
+        page2.style.display = 'none';
+        page3.style.display = 'block';
+        // Additional functionalities specific to viewing history can be added here
+        // For example, fetching and displaying round history
+    });
+
+    goBackBtn.addEventListener('click', () => {
+        page3.style.display = 'none';
+        page2.style.display = 'block';
+    });
+
+    // Functionality specific to connecting wallet (can be placed on Page 1)
+    const connectWalletBtn = document.getElementById('connect-wallet-btn');
+
+    connectWalletBtn.addEventListener('click', () => {
+        // Placeholder for connecting wallet functionality
+        alert('Connect wallet functionality will be implemented here.');
+    });
 });
