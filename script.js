@@ -4,6 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonRootId: 'connect-wallet-btn'
     });
 
+    // Set return strategy
+    tonConnectUI.uiOptions = {
+        actionsConfiguration: {
+            returnStrategy: 'none'
+        }
+    };
+
     // Navigation between pages
     const page1 = document.getElementById('page-1');
     const page2 = document.getElementById('page-2');
