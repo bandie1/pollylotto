@@ -41,6 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
         historyTable.style.display = 'block';
     };
 
+    const connectWallet = async () => {
+        try {
+            await tonConnectUI.openModal();
+        } catch (error) {
+            console.error('Error connecting to wallet:', error);
+        }
+    };
+
     const countdownInterval = setInterval(() => {
         secondsLeft--;
         countdownElement.textContent = secondsLeft;
@@ -51,21 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
 
-    const connectToWallet = async () => {
-        try {
-            const connectedWallet = await tonConnectUI.connectWallet();
-            // Do something with connectedWallet if needed
-            console.log(connectedWallet);
-        } catch (error) {
-            console.error("Error connecting to wallet:", error);
-        }
-    };
-
     const connectWalletBtn = document.getElementById('connect-wallet-btn');
     const participateBtn = document.getElementById('participate-btn');
     const viewHistoryBtn = document.getElementById('view-history-btn');
 
-    connectWalletBtn.addEventListener('click', connectToWallet);
+    connectWalletBtn.addEventListener('click', connectWallet);
     participateBtn.addEventListener('click', participateInLottery);
     viewHistoryBtn.addEventListener('click', showHistory);
 });
