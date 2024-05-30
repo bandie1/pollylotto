@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottery App</title>
+    <title>PollyLotto</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Lottery App</h1>
+        <h1>PollyLotto</h1>
     </header>
-    <main>
+    <main id="home-page">
         <div id="lottery-number">000</div>
+        <div id="draw-info">Time: <span id="countdown">00:00</span> | Round: <span id="round-number">1</span></div>
         <button id="draw-button">Draw Number</button>
-        <div id="timer">Next draw in: <span id="countdown">00:00</span></div>
-        <div id="history">
-            <h2>Past Winning Numbers</h2>
-            <ul id="history-list"></ul>
-        </div>
+        <button id="history-button">History</button>
+        <button id="buy-tickets-button">Buy Tickets</button>
+    </main>
+    <main id="history-page" class="hidden">
+        <h2>Past Winning Numbers</h2>
+        <ul id="history-list"></ul>
+        <button id="back-button">Back</button>
+    </main>
+    <main id="buy-tickets-page" class="hidden">
+        <h2>Buy Tickets</h2>
+        <input type="text" id="ticket-input" maxlength="3" placeholder="Enter 3 characters">
+        <button id="submit-ticket">Submit</button>
+        <button id="back-button2">Back</button>
     </main>
     <footer>
         <button id="connect-wallet">Connect Wallet</button>

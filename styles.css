@@ -6,10 +6,11 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-color: #f0f0f0;
 }
 
 header {
-    background-color: #333;
+    background-color: purple;
     color: white;
     padding: 1em;
 }
@@ -30,22 +31,30 @@ main {
 button {
     padding: 1em;
     margin: 1em;
-    background-color: #333;
+    background-color: purple;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-#timer {
+button:hover {
+    background-color: #5d3b5c;
+}
+
+#draw-info {
     margin: 1em 0;
 }
 
-#history {
-    margin-top: 2em;
+#history-page, #buy-tickets-page {
+    display: none;
+}
+
+.hidden {
+    display: none;
 }
 
 footer {
-    background-color: #333;
+    background-color: purple;
     color: white;
     padding: 1em;
 }
