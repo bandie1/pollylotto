@@ -1,32 +1,51 @@
-/* Page 1 styles */
-#page-1 {
-    background: linear-gradient(to bottom, white, black);
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: #333;
     color: white;
+    padding: 1em;
 }
 
-#page-1 .btn {
-    position: fixed;
-    bottom: 20px;
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Page 2 styles */
-#page-2 {
-    background: linear-gradient(to bottom, black, white);
+#lottery-number {
+    font-size: 5em;
+    margin: 1em 0;
+}
+
+button {
+    padding: 1em;
+    margin: 1em;
+    background-color: #333;
     color: white;
+    border: none;
+    cursor: pointer;
 }
 
-#page-2 .btn {
-    position: fixed;
-    bottom: 20px;
+#timer {
+    margin: 1em 0;
 }
 
-/* Page 3 styles */
-#page-3 {
-    background-color: black;
+#history {
+    margin-top: 2em;
+}
+
+footer {
+    background-color: #333;
     color: white;
-}
-
-#page-3 .btn {
-    position: relative;
-    top: 20px;
+    padding: 1em;
 }

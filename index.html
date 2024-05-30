@@ -4,115 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lottery App</title>
-    <!-- Include TonConnect UI styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tonconnect/ui-react/dist/styles.css">
-    <!-- Include your custom styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="page-1">
-        <header>
-            <h1>My Lottery App</h1>
-            <!-- TonConnect Button for connecting wallet -->
-            <button id="connect-wallet-btn">Connect Wallet</button>
-        </header>
-        <main>
-            <!-- Content for Page 1 -->
-            <p>This is Page 1 content</p>
-            <button id="goto-page-2">Go to Page 2</button>
-        </main>
-    </div>
-
-    <div class="container" id="page-2" style="display: none;">
-        <header>
-            <h1>Lottery Information</h1>
-        </header>
-        <main>
-            <!-- Content for Page 2 -->
-            <div id="lottery-container">
-                <div id="timer">Time Left: <span id="countdown">60</span> seconds</div>
-                <div id="prize-pool">Prize Pool: $<span id="prize-amount">100</span></div>
-                <button class="btn" id="participate-btn">Participate (+$5)</button>
-                <button class="btn" id="view-history-btn">View History</button>
-                <div id="round-info">Round: <span id="round-number">1</span>, Date: <span id="round-date">April 11, 2024</span></div>
-            </div>
-            <button id="goto-page-1">Back to Page 1</button>
-            <button id="goto-page-3">Go to Page 3</button>
-        </main>
-    </div>
-
-    <div class="container" id="page-3" style="display: none;">
-        <header>
-            <h1>Round History</h1>
-        </header>
-        <main>
-            <!-- Content for Page 3 -->
-            <div id="history-container">
-                <table id="history-table">
-                    <thead>
-                        <tr>
-                            <th>Round</th>
-                            <th>Prize Pool</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Sample round entry (can be populated dynamically) -->
-                        <tr class="round-entry">
-                            <td>1</td>
-                            <td>$100</td>
-                            <td>April 11, 2024</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button id="goto-page-2">Back to Page 2</button>
-        </main>
-    </div>
-
-    <!-- Include TonConnect UI script -->
-    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
-    <!-- Include your custom JavaScript file -->
+    <header>
+        <h1>Lottery App</h1>
+    </header>
+    <main>
+        <div id="lottery-number">000</div>
+        <button id="draw-button">Draw Number</button>
+        <div id="timer">Next draw in: <span id="countdown">00:00</span></div>
+        <div id="history">
+            <h2>Past Winning Numbers</h2>
+            <ul id="history-list"></ul>
+        </div>
+    </main>
+    <footer>
+        <button id="connect-wallet">Connect Wallet</button>
+    </footer>
     <script src="script.js"></script>
-
-    <!-- Initialize Ton Connect UI -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-                manifestUrl: 'https://bandie1.github.io/pollylotto/manifest.json',
-                buttonRootId: 'connect-wallet-btn'
-            });
-
-            // Navigation between pages
-            const page1 = document.getElementById('page-1');
-            const page2 = document.getElementById('page-2');
-            const page3 = document.getElementById('page-3');
-
-            const goToPage2Btn = document.getElementById('goto-page-2');
-            const goToPage3BtnFrom2 = document.getElementById('goto-page-3');
-            const goToPage1BtnFrom2 = document.getElementById('goto-page-1');
-            const goToPage2BtnFrom3 = document.getElementById('goto-page-2');
-
-            goToPage2Btn.addEventListener('click', () => {
-                page1.style.display = 'none';
-                page2.style.display = 'block';
-            });
-
-            goToPage3BtnFrom2.addEventListener('click', () => {
-                page2.style.display = 'none';
-                page3.style.display = 'block';
-            });
-
-            goToPage1BtnFrom2.addEventListener('click', () => {
-                page2.style.display = 'none';
-                page1.style.display = 'block';
-            });
-
-            goToPage2BtnFrom3.addEventListener('click', () => {
-                page3.style.display = 'none';
-                page2.style.display = 'block';
-            });
-        });
-    </script>
 </body>
 </html>
